@@ -1,3 +1,4 @@
 se
-senao
+nao
 entao
+bola
