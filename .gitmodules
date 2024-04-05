@@ -1,0 +1,3 @@
+[submodule "Deterministic_finite_automaton"]
+	path = Deterministic_finite_automaton
+	url = https://github.com/luizpgt/Deterministic_finite_automaton.git
