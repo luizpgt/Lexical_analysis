@@ -1,8 +1,6 @@
 
 
 
-
-
 # TODO: permitir multiplas gramáticas como input para automato finito
 # DONE: gerar fita 
 # TODO: adicionar suporte à entrada de tokens SEPARADORES como + e ou -
@@ -12,10 +10,13 @@ from Deterministic_finite_automaton.main import generate_deterministic_state_tra
 from models.lexical_analyzer import Lexical_Analyzer
 from input_.lexical_scanner import read_input_sentences
 
-# generate deterministic_state_transition_table 
 token_n_grammars_file = "finite_automata_input.txt";
+
 deterministic_state_transition_table = generate_deterministic_state_transition_table(token_n_grammars_file);
-print("\nDeterministic State Transition Table ::: \n");
+
+print("DETERMINISTIC STATE TRANSITION TABLE");
+print("------------------------------------");
+
 markdown_print(deterministic_state_transition_table); # pretty print table 
 
 lexical_analyzer = Lexical_Analyzer(deterministic_state_transition_table);
@@ -27,6 +28,4 @@ lexical_analyzer.analyze_sentences(list_of_all_sentences);
 
 print("LEXIC ANALYSIS");
 print("--------------");
-print("tape: ", lexical_analyzer.tape);
-print();
 print(lexical_analyzer);

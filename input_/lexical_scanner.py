@@ -1,8 +1,7 @@
 separator_chars = [' ', '\n'];
-appearing_separator_chars = ['+'];
+appearing_separator_chars = ['+', '-', '*', '/'];
 
 separator_chars += appearing_separator_chars;
-
 
 def read_input_sentences(filename):
     file = open(filename, "r");

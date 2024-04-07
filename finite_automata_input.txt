@@ -13,3 +13,10 @@ senao
 
 <S> ::= a<A> | e<A> | i<A> | o<A> | u<A>
 <A> ::= a<A> | e<A> | i<A> | o<A> | u<A> | ε
+
+¨<S> ::= b<A> | c<B> | d
+¨<A> ::= b<A> | f<B> | ε
+¨<B> ::= g<B> | h
+¨se
+¨sei
+¨bola

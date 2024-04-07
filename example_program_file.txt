@@ -1,4 +1,5 @@
 se
-nao
 entao
-bola
+ent
+senao
+aaaeiou
