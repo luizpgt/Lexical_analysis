@@ -11,6 +11,16 @@ def generate_lexical_analyzer(deterministic_state_transition_table, program_file
     
     return lexical_analyzer;
 
+def print_stape_to_file(lexical_analyzer, stape_filename):
+    tape = "";
+    lines = [];
+    for table_el in lexical_analyzer.symbols_table:
+        lines.append('¨ ' + table_el.state_accept_value + "\n");
+        tape += (" " + table_el.state_accept_value);
+    
+    lines.append(tape);
+    with open (stape_filename, "w") as file:
+        file.writelines(lines);
 
 if __name__ == "__main__":
     finite_automata_input_filename = "finite_automata_input.txt";
@@ -25,3 +35,6 @@ if __name__ == "__main__":
     print("--------------");
     lexical_analyzer = generate_lexical_analyzer(deterministic_state_transition_table, program_filename);
     print(lexical_analyzer);
+
+    stape_filename = "output_stape.txt";
+    print_stape_to_file(lexical_analyzer, stape_filename);
