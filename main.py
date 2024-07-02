@@ -15,7 +15,8 @@ def print_stape_to_file(lexical_analyzer, stape_filename):
     tape = "";
     lines = [];
     for table_el in lexical_analyzer.symbols_table:
-        lines.append('¨ ' + table_el.state_accept_value + "\n");
+        if not (table_el.state_accept_value in tape):
+            lines.append('¨ ' + table_el.state_accept_value + "\n");
         tape += (" " + table_el.state_accept_value);
     
     lines.append(tape);
