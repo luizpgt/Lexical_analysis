@@ -1,0 +1,13 @@
+¨ se
+¨ entao
+¨ ERROR
+¨ senao
+¨ 1_var_A
+¨ $ (EOF)
+se 1 se
+entao 2 entao
+ERROR 3 ent
+senao 4 senao
+1_var_A 5 aaaeiou
+entao 6 entao
+$

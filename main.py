@@ -11,15 +11,32 @@ def generate_lexical_analyzer(deterministic_state_transition_table, program_file
     
     return lexical_analyzer;
 
-def print_stape_to_file(lexical_analyzer, stape_filename):
+def print_stable_to_file(lexical_analyzer, stape_filename):
     tape = "";
+    translation_table = "";
+    stable = "";
     lines = [];
+    # generate stable and translation table:
     for table_el in lexical_analyzer.symbols_table:
         if not (table_el.state_accept_value in tape):
-            lines.append('¨ ' + table_el.state_accept_value + "\n");
+            # for translation table:
+            translation_table += '¨ ' + table_el.state_accept_value + "\n";
+            # lines.append('¨ ' + table_el.state_accept_value + "\n");
+        # generate table lines
+        # table += str(table_el.state_identifier);
+        stable += str(table_el.state_accept_value );
+        stable += " " + str(table_el.file_line);
+        stable += " " + str(table_el.label);
+        stable += "\n";
         tape += (" " + table_el.state_accept_value);
     
-    lines.append(tape);
+    # append (EOF)
+    translation_table += '¨ $ (EOF)\n'
+    stable += '$\n'
+
+    # lines.append(tape);
+    lines.append(translation_table);
+    lines.append(stable);
     with open (stape_filename, "w") as file:
         file.writelines(lines);
 
@@ -37,5 +54,5 @@ if __name__ == "__main__":
     lexical_analyzer = generate_lexical_analyzer(deterministic_state_transition_table, program_filename);
     print(lexical_analyzer);
 
-    stape_filename = "output_stape.txt";
-    print_stape_to_file(lexical_analyzer, stape_filename);
+    stape_filename = "output_stable.txt";
+    print_stable_to_file(lexical_analyzer, stape_filename);
